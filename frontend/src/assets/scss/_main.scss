@@ -1,0 +1,10 @@
+@import './colors';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
+
+.main {
+    display: flex;
+    flex-direction: flex;
+    height: 100vh;
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: 100px
+}
