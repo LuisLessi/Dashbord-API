@@ -9,7 +9,12 @@
             </div>
 
             <div class="pages">
-                
+                <slot name="slot-pages">
+                    <div class="content-pages">
+
+                    </div>
+                    
+                </slot>
             </div>
         </div>
     </div>
