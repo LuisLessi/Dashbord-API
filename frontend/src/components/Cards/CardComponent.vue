@@ -8,25 +8,22 @@
         <div class="content footer">
             <i :class="['fa icon', icon]"></i>
 
-            <p class="qtd">{{qtd}}</p>
+            <p class="qtd">{{ qtd.length }}</p>
         </div>
     </div>
 </template>
 
 <script>
-export default{
+export default {
     name: 'CardComponent',
-    props: {
-        type: String,
-        percentage: String,
-        icon: String,
-        qtd: String
-    }
+    props: [ 'type', 'percentage', 'icon', 'qtd'
+    ]
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/main';
+
 .my_card {
     display: flex;
     flex-direction: column;
@@ -40,24 +37,24 @@ export default{
         display: flex;
         justify-content: space-between;
     }
-        .top {
-            
-            .percentage{
-             color: $green;   
-            }
-        }
 
-        .footer {
+    .top {
 
-            .icon{
-                font-size: 40px;
-            }
-
-            .qtd{
-                font-size: 30px;
-                margin: 0;
-            }
+        .percentage {
+            color: $green;
         }
     }
 
+    .footer {
+
+        .icon {
+            font-size: 40px;
+        }
+
+        .qtd {
+            font-size: 30px;
+            margin: 0;
+        }
+    }
+}
 </style>

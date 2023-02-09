@@ -1,7 +1,7 @@
 <template>
     <div class="lists">
         <div class="top">
-            <p><strong>Clientes</strong></p>
+            <p><strong>{{ description }} &nbsp;</strong><span class="badge bg-info">{{ data.length }}</span></p>
 
         </div>
 
@@ -10,17 +10,28 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">nome</th>
-                        <th scope="col">email</th>
-                        <th scope="col">Username</th>
+                        <th scope="col">{{ columns[0]}}</th>
+                        <th scope="col">{{ columns[1]}}</th>
+                        <th scope="col">{{ columns[2]}}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="user in users" :key="user.id">
-                        <th scope="row">{{ user.id }}</th>
-                        <td><p class="users">{{ user.name }}</p></td>
-                        <td><p class="users">{{ user.email }}</p></td>
-                        <td><p class="users">{{ user.username }}</p></td>
+                    <tr v-for="item in data" :key="item.id">
+                        <th scope="row">{{ item.id }}</th>
+                        <td>
+                            <p class="users">{{ item.name }}</p>
+                        </td>
+                        <div v-if="item.email">
+                            <td>
+                                <p class="users">{{ item.email }}</p>
+                            </td>
+                        </div>
+
+                        <div v-else>
+                            <td>
+                                <p class="users">{{ item.price }}</p>
+                            </td>
+                        </div>
                     </tr>
                 </tbody>
             </table>
@@ -31,7 +42,7 @@
 <script>
 export default {
     name: 'ListsComponent',
-    props: ['users']
+    props: ['data', 'description', 'columns']
 }
 </script>
 
@@ -44,7 +55,7 @@ export default {
     background-color: #fff;
 }
 
-.users{
+.users {
     font-size: 12px;
 }
 </style>
